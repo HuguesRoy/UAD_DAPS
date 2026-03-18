@@ -1,0 +1,38 @@
+
+data_test:
+  _target_: utils.factories.CapsDataset_with_conversion
+  conversion_arg: test_pet_AD_30 
+
+  caps_directory: path_to_caps_folder
+  data: path_to_data_tsv
+
+  preprocessing:
+    _target_: clinicadl.data.datatypes.PETLinear
+    tracer: 18FFDG
+    suvr_reference_region: cerebellumPons2
+    use_uncropped_image: false
+    reconstruction: coregiso
+
+  transforms:
+    _target_: clinicadl.transforms.Transforms
+    image_transforms:
+      - _target_: data.preprocessing.Hypometabolism
+        mask_dir: path_to_caps_folder/masks
+        pathology: AD
+        percentage: 50
+      - _target_: clinicadl.transforms.config.RescaleIntensityConfig
+        out_min_max: [-1, 1]
+    extraction: 
+      _target_: clinicadl.transforms.extraction.Slice
+      slice_direction: 2
+      slices:
+        _target_: data.utils.create_slices_cdl
+        first_slice: 60
+        last_slice: 130
+        sep: 2
+    sample_transforms:
+      - _target_: data.preprocessing.SliceResize
+        size:
+          - 128
+          - 128
+        mode: bilinear

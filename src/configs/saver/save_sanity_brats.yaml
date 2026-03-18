@@ -1,0 +1,6 @@
+_target_: utils.saver_handlers.SaverHandler
+
+output_dir: ${tester.output_dir}
+save_every: null
+save_indices: [10,20,30,50,60,120,145,169,180]
+name_map: null

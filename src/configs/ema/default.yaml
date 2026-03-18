@@ -1,0 +1,4 @@
+# configs/ema/default.yaml
+_target_: utils.EMA
+mu: 0.999
+update_buffers: true

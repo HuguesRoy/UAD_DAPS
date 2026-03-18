@@ -1,0 +1,7 @@
+# configs/callbacks/model_checkpoint.yaml
+
+model_checkpoint:
+  _target_: callbacks.CheckpointCallback
+  output_dir: ${trainer.output_dir}  
+  every_n_epochs: 5
+  save_best_only: false

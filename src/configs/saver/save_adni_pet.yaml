@@ -1,0 +1,7 @@
+_target_: utils.saver_handlers.SaverHandler
+
+output_dir: ${tester.output_dir}
+name_map: null
+save_indices: [10,20,32,40,45,60,80,90,100,110,120,145,169,180]
+save_format: npy
+per_sample: true

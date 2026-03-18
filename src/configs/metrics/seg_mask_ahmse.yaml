@@ -1,0 +1,3 @@
+ahMSE_in_seg_mask:
+  _target_: metrics.metrics.ahMSE
+  mask_extension: seg_mask_

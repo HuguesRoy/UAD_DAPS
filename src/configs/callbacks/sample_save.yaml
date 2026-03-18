@@ -1,0 +1,7 @@
+
+sample_save:
+  _target_: callbacks.ImageCallback
+  output_dir: ${trainer.output_dir}
+  every_n_epochs: 1
+  n_samples: 9
+  use_dict: true

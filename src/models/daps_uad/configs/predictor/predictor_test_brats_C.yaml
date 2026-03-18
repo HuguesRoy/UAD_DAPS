@@ -1,0 +1,33 @@
+_target_: models.daps_uad.predictor.predictor.PredictorAblationC
+
+model:
+  _target_: utils.model_utils.load_model_from_config
+  cfg_path: ${path_model} 
+  checkpoint_path: ${path_checkpoint} 
+  device: ${device}
+  key: model
+  use_ema: true
+inference_scheduler:
+  _target_: models.daps_uad.model.var_schedule.EDMSchedule
+  P_mean: -1.2
+  P_std: 1.2
+  sigma_min: 0.05
+  sigma_max: 20
+  sigma_data:  0.5
+  rho: 7
+
+predictor_config:
+  device : ${device}
+  N: 150
+  N_inner: 50
+  lam_logit_init: .1
+  ode_steps: 2
+  alpha: 1.
+  c_anneal: 2e-2
+  lam_smooth: .0
+  
+  mu_logit: 2.5
+  delta_a: 1e-3
+  delta_x: 5e-3
+  eta_a_min: 1e-4
+  eta_a_max: 1e-2

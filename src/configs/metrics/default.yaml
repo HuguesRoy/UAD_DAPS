@@ -1,0 +1,3 @@
+defaults:
+  - best_dice_intensity
+  - average_precision

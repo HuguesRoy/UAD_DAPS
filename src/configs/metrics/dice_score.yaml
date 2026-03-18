@@ -1,0 +1,2 @@
+dice_score:
+  _target_: metrics.metrics.DiceScore

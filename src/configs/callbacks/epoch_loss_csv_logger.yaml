@@ -1,0 +1,3 @@
+epoch_loss_csv_logger:
+  _target_: callbacks.EpochLossCSVLogger
+  output_dir: ${hydra:run.dir}

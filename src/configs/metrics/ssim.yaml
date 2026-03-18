@@ -1,0 +1,2 @@
+ssim:
+  _target_: metrics.metrics.SSIM

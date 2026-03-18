@@ -1,0 +1,7 @@
+_target_: data.wrappers.ClinicaDLWrapper
+device: ${device}
+image_key: image
+mask_key: null
+seg_key: null
+label_key: null
+original_image_key: null # for simulated AD - retrieve true healthy

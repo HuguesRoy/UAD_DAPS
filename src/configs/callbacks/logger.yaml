@@ -1,0 +1,4 @@
+logger:
+  _target_: callbacks.LoggerCallback
+  output_dir: ${trainer.output_dir}
+  filename: "train_log.csv"

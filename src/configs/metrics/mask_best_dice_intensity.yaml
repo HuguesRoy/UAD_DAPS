@@ -1,0 +1,5 @@
+best_dice_intensity_in_brain_mask:
+  _target_: metrics.metrics.BestDiceIntensity
+  n_threshold: 100
+  num_processes: 4
+  in_mask: true

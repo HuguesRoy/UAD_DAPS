@@ -1,0 +1,4 @@
+best_dice_intensity:
+  _target_: metrics.metrics.BestDiceIntensity
+  n_threshold: 100
+  num_processes: 4

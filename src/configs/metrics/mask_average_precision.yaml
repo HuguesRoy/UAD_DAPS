@@ -1,0 +1,3 @@
+average_precision_in_brain_mask:
+  _target_: metrics.metrics.AveragePrecision
+  in_mask: true

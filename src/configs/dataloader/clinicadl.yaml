@@ -1,0 +1,27 @@
+
+train_loader:
+  _target_: utils.DataLoaderWrapper
+  batch_size: 16
+  prefetch_factor: 2
+  num_workers: 5
+  shuffle: true
+  pin_memory: true
+  drop_last: false
+
+val_loader:
+  _target_: utils.DataLoaderWrapper
+  batch_size: 32
+  prefetch_factor: 2
+  num_workers: 5
+  shuffle: false
+  pin_memory: true
+  drop_last: false
+
+test_loader:
+  _target_: utils.DataLoaderWrapper
+  batch_size: 64
+  prefetch_factor: 2
+  num_workers: 5
+  shuffle: false
+  pin_memory: true
+  drop_last: false

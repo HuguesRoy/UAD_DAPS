@@ -1,0 +1,11 @@
+_target_: models.daps_uad.model.networks.Unet
+
+dim : 128
+init_dim : null
+out_dim : null
+dim_mults : [1, 2, 2]
+channels : 1
+
+self_condition : False
+resnet_block_groups : 4
+n_block_klass : 2

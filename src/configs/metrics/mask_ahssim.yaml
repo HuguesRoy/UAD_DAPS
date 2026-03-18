@@ -1,0 +1,3 @@
+ahSSIM_in_brain_mask:
+  _target_: metrics.metrics.ahSSIM
+  mask_extension: mask_

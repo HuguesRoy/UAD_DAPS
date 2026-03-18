@@ -1,0 +1,61 @@
+data_train:
+  _target_: utils.factories.CapsDataset_with_conversion
+  conversion_arg: default_space-MNI152NLin2009cSym_res-1x1x1_desc-Crop_desc-SkullStripped_FLAIR
+
+  caps_directory: path_to_caps_folder
+  data: path_to_data_tsv
+
+  preprocessing:
+    _target_: clinicadl.data.datatypes.Custom
+    custom_suffix: space-MNI152NLin2009cSym_res-1x1x1_desc-Crop_desc-SkullStripped_FLAIR
+
+  transforms:
+    _target_: clinicadl.transforms.Transforms
+    image_transforms:
+      - _target_: clinicadl.transforms.config.RescaleIntensityConfig
+        out_min_max: [-1, 1]
+    extraction: 
+      _target_: clinicadl.transforms.extraction.Slice
+      slice_direction: 2
+      slices:
+        _target_: data.utils.create_slices_cdl
+        first_slice: 20
+        last_slice: 140
+        sep: 2
+    sample_transforms:
+      - _target_: data.preprocessing.SliceResize
+        size:
+          - 128
+          - 128
+        mode: bilinear
+
+data_val:
+  _target_: utils.factories.CapsDataset_with_conversion
+  conversion_arg: default_space-MNI152NLin2009cSym_res-1x1x1_desc-Crop_desc-SkullStripped_FLAIR 
+
+  caps_directory: path_to_caps_folder
+  data: path_to_data_tsv
+
+  preprocessing:
+    _target_: clinicadl.data.datatypes.Custom
+    custom_suffix: space-MNI152NLin2009cSym_res-1x1x1_desc-Crop_desc-SkullStripped_FLAIR
+
+  transforms:
+    _target_: clinicadl.transforms.Transforms
+    image_transforms:
+      - _target_: clinicadl.transforms.config.RescaleIntensityConfig
+        out_min_max: [-1, 1]
+    extraction: 
+      _target_: clinicadl.transforms.extraction.Slice
+      slice_direction: 2
+      slices:
+        _target_: data.utils.create_slices_cdl
+        first_slice: 20
+        last_slice: 140
+        sep: 5
+    sample_transforms:
+      - _target_: data.preprocessing.SliceResize
+        size:
+          - 128
+          - 128
+        mode: bilinear

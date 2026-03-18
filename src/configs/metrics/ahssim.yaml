@@ -1,0 +1,2 @@
+ahSSIM:
+  _target_: metrics.metrics.ahSSIM

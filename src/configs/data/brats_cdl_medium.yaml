@@ -1,0 +1,29 @@
+data_test:
+  _target_: utils.factories.CapsDataset_with_conversion
+  conversion_arg: brats_noBias_resize 
+
+  caps_directory: path_to_caps_folder
+  data: /lustre/fswork/projects/rech/krk/uup48ab/these/journal_bfn/data_preprocessing/brats_v2021/abnormal_slices_extraction/brats_selected_medium.tsv
+
+  preprocessing:
+    _target_: clinicadl.data.datatypes.Custom
+    custom_suffix: space-MNI152NLin2009cSym_desc-Crop_res-1x1x1_desc-noBias_resizePadTemplate_FLAIR
+
+  transforms:
+    _target_: clinicadl.transforms.Transforms
+    image_transforms:
+      - _target_: clinicadl.transforms.config.RescaleIntensityConfig
+        out_min_max: [-1, 1]
+    extraction: 
+      _target_: clinicadl.transforms.extraction.Slice
+      slice_direction: 2
+      tsv_path: path_to_data_brats_selected_medium.tsv
+    sample_transforms:
+      - _target_: data.preprocessing.SliceResize
+        size:
+          - 128
+          - 128
+        mode: bilinear
+
+  masks:
+    - desc-tumor_dseg

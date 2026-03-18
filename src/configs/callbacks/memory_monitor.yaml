@@ -1,0 +1,4 @@
+
+memory_monitor:
+  _target_: callbacks.MemoryMonitorCallback
+  interval: 50

@@ -1,0 +1,11 @@
+defaults:
+  - mask_best_dice_intensity
+  - mask_average_precision
+  - mask_mse
+  - mask_ssim 
+  - mask_ahmse 
+  - mask_ahssim 
+  - seg_mask_mse
+  - seg_mask_ssim 
+  - seg_mask_ahmse 
+  - seg_mask_ahssim 

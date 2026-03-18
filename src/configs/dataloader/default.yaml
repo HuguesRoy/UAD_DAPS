@@ -1,0 +1,29 @@
+train_loader:
+  _partial_: true
+  _target_: torch.utils.data.DataLoader
+  batch_size: 15
+  prefetch_factor: 4
+  num_workers: 10
+  shuffle: true
+  pin_memory: true
+  drop_last: false
+
+val_loader:
+  _partial_: true
+  _target_: torch.utils.data.DataLoader
+  batch_size: 30
+  prefetch_factor: 4
+  num_workers: 10
+  shuffle: False
+  pin_memory: true
+  drop_last: false
+
+test_loader:
+  _partial_: true
+  _target_: torch.utils.data.DataLoader
+  batch_size: 10
+  prefetch_factor: 4
+  num_workers: 10
+  shuffle: False
+  pin_memory: true
+  drop_last: false

@@ -1,0 +1,3 @@
+mse_in_seg_mask:
+  _target_: metrics.metrics.MSE
+  mask_extension: seg_mask_

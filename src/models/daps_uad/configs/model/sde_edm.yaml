@@ -1,0 +1,7 @@
+defaults: 
+  - network/unet_hf@network
+  - schedules/EDM_schedule@schedule
+
+_target_: models.daps_uad.model.SDE_edm
+
+model_config: null

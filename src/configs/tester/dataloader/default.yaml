@@ -1,0 +1,8 @@
+_partial_: true
+_target_: torch.utils.data.DataLoader
+batch_size: 10
+prefetch_factor: 4
+num_workers: 10
+shuffle: False
+pin_memory: true
+drop_last: false
